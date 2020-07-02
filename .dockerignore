@@ -1,0 +1,15 @@
+# these folders should not be sent to the docker build context.
+# in general, these are files not required for build,
+# or files that will be output by the in-container build process.
+
+# node_modules and wwwroot are restored/built inside the cotnainer
+node_modules
+wwwroot
+readme
+.vscode
+debug.log
+deploy-*
+docker-*
+Dockerfile
+readme.md
+config/config.json

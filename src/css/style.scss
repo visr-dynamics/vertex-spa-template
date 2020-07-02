@@ -1,0 +1,149 @@
+// import a 'css reset'
+// this irons out the differences between the default styles of different browsers
+// note: the ~ before the path indicates that 'reset-css' is a node module rather than a relative path.
+@import "~reset-css/sass/reset";
+
+// import bootstrap
+// this is optional but provides a lot of utility
+// if customizing bootstrap, import the custom scss file before bootstrap
+// more info: https://getbootstrap.com/docs/4.0/getting-started/webpack/#importing-styles
+@import "~bootstrap/scss/bootstrap";
+
+// your extra special app styles go here
+$rad: 3.5px;
+
+%lato-font {
+  // specifies the font-stack to use, with lato at the top.
+  // use @extend %lato-font; to include this
+  font-family: Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+}
+
+#RenderCanvas {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  left: 0;
+}
+
+body,
+html {
+  @extend %lato-font;
+  height: 100%;
+  width: 100%;
+  background: #1f1f20 url("/img/bg.png");
+  background-size: cover;
+  background-position: center;
+  color: whitesmoke;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.explorerContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 8rem 5rem;
+
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  justify-content: space-evenly;
+  background: dimgray;
+  padding: 25px;
+  border-radius: $rad * 2;
+  box-shadow: inset;
+  align-content: start;
+  grid-gap: 15px 0;
+
+  overflow: hidden scroll;
+}
+
+.explorerCell {
+  width: 10rem;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  color: whitesmoke;
+  position: relative;
+  border-radius: $rad;
+  overflow: hidden;
+
+  & > span {
+    background-color: #1f1f20;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 9px;
+    border-radius: 0 0 $rad $rad;
+  }
+  & > img {
+    background: url("https://vertx.cloud/core/FixedIcons/SceneIcon@2x.png");
+    background-origin: 50% 50%;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: $rad;
+    border: none;
+  }
+}
+
+.newSceneButton {
+  max-width: 75%;
+  max-height: 75%;
+  width: 75px;
+  height: 75px;
+  // padding: calc(50% - 75px / 2);
+  background: -webkit-linear-gradient(45deg, #272edc, #007bfe 30%, #21d0e1 90%);
+  position: relative;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(45deg, #272edc, #007bfe 30%, #21d0e1 90%);
+  border-radius: 50%;
+  &::before {
+    content: "";
+    background: whitesmoke;
+    width: 50%;
+    height: 10px;
+    display: block;
+    position: relative;
+    transform: translate(0, -50%);
+    top: 50%;
+    left: 25%;
+    border-radius: 2.5px;
+  }
+
+  &::after {
+    content: "";
+    background: whitesmoke;
+    width: 10px;
+    height: 50%;
+    display: block;
+    position: relative;
+    border-radius: 2.5px;
+    transform: translate(-50%, -25%);
+    top: 25%;
+    left: 50%;
+  }
+}
+
+.text-gradient {
+  display: inline-block;
+  background: -webkit-linear-gradient(45deg, #272edc, #007bfe 30%, #21d0e1 90%);
+  background: linear-gradient(45deg, #272edc, #007bfe 30%, #21d0e1 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

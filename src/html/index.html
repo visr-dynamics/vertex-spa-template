@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- The Lato font. If your app doesn't use Lato, you can remove this tag. -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap" rel="stylesheet" />
+
+  <!-- The main stylesheet. This is compiled from the stylesheets included in index.ts  -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- The default page title -->
+  <title>VERTX SPA Template</title>
+</head>
+
+<body>
+  <!-- The canvas that VERTX will render to. This can be placed wherever in the document, but it currently must have an ID of 'RenderCanvas' -->
+  <canvas id="RenderCanvas" class="hidden"></canvas>
+
+  <div class="container h-100 d-flex flex-column justify-content-center align-items-center">
+    <h1 class="text-gradient">Hello, VERTX!</h1>
+
+    <!-- Content displayed only when signed out -->
+    <div class="signed-out-ui d-flex flex-row justify-content-center hidden">
+      <button class="btn btn-primary btn-lg" data-action="auth-sign-in">Sign In</button>
+    </div>
+
+    <!-- Content displayed only when signed in  -->
+    <div class="signed-in-ui d-flex flex-row justify-content-center hidden on-top">
+      <div class="d-flex flex-column">
+        <span>
+          <img class="d-inline-block m-2" style="max-height: 2rem;" data-bind="auth_picture" src="http://www.gravatar.com/avatar" alt="User Icon" />
+          You're signed in as <span data-bind="auth_displayname">{{displayname}}</span>
+        </span>
+        <button class="btn btn-primary mt-2" data-action="explorer-show">Select Space</button>
+        <button class="btn btn-outline-primary mt-2" data-action="auth-sign-out">Sign Out</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- "Non-module" dependencies. These are scripts that need to be loaded the old-fashioned (non import) way. -->
+  <script src="/vendor/babylon/babylon.max.js"></script>
+  <script src="/vendor/babylon/babylonjs.loaders.js"></script>
+  <script src="/vendor/babylon/babylonjs.postProcess.js"></script>
+  <script src="/vendor/vertex-client/vertexruntime.js"></script>
+  <script src="/vendor/vertex-client-babylon/vertexbabylonruntime.js"></script>
+
+  <!-- Webpack entrypoint. This runs the compiled app code, compiled from index.ts -->
+  <script src="/js/main/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+{
+  "name": "vertex-template",
+  "version": "1.0.0",
+  "description": "A simple template for Single Page Web Apps using VERTX",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx webpack-dev-server",
+    "dev-https": "npx webpack-dev-server --https --port 8443 --host 0.0.0.0 --allowedHosts dev.vertx.cloud",
+    "build": "npx webpack",
+    "docker-build": "docker build -t vertex-template:latest .",
+    "docker-run": "docker run --rm -it -p 3000:80 vertex-template:latest",
+    "docker-push": "docker push vertex-template:latest"
+  },
+  "author": "VISR Dynamics Ltd.",
+  "license": "ISC",
+  "dependencies": {
+    "@types/semaphore": "^1.1.1",
+    "babylonjs": "^4.0.3",
+    "babylonjs-gltf2interface": "^4.0.3",
+    "babylonjs-loaders": "^4.0.3",
+    "babylonjs-post-process": "^4.0.3",
+    "bootstrap": "^4.6.0",
+    "com.visr-vr.vertex.jsclient": "0.1.1",
+    "com.visr-vr.vertex.jsclient-babylon": "0.0.2",
+    "oidc-client": "^1.10.1",
+    "reset-css": "^5.0.1",
+    "sweetalert2": "^10.15.5"
+  },
+  "devDependencies": {
+    "@types/bootstrap": "^4.0.0",
+    "@types/copy-webpack-plugin": "^6.4.0",
+    "babel-loader": "^8.0.5",
+    "copy-webpack-plugin": "^6.3.2",
+    "css-loader": "^3.6.0",
+    "http-server": "^0.12.3",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.2",
+    "style-loader": "^1.2.1",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.5",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "Node",
+        "module": "ES6",
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "target": "ES6",
+        "types": [
+            "com.visr-vr.vertex.jsclient",
+            "com.visr-vr.vertex.jsclient-babylon",
+            "@types/bootstrap",
+            "babylonjs"
+        ],
+        "typeRoots": [
+            "./local_modules/"
+        ]
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}
