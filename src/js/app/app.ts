@@ -101,9 +101,13 @@ export default class App {
         Vertex.Globals.vertexStackUrl = Config.VERTEX_URL_BASE;
         Vertex.Globals.spaceId = id;
 
+        const user = await this.auth.getUser();
+
         await VertexBabylon.InitVertexAsync();
 
         const runtime = Vertex.Globals.runtime as VertexBabylon.VertexBabylonRuntime;
+        runtime.setBearerToken(user.access_token);
+        
         const scene = runtime.scene;
         runtime.initUniversalCamera(scene);
         runtime.initLighting(scene);

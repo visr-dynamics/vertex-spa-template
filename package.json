@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx webpack-dev-server",
-    "dev-https": "npx webpack-dev-server --https --port 8443 --host 0.0.0.0 --allowedHosts dev.vertx.cloud",
+    "dev-https": "npx webpack-dev-server --https --port 3443 --host 0.0.0.0 --allowedHosts dev.vertx.cloud",
     "build": "npx webpack",
     "docker-build": "docker build -t vertex-template:latest .",
     "docker-run": "docker run --rm -it -p 3000:80 vertex-template:latest",
